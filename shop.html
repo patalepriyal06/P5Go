@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><title>P5GO - Shop</title><link href="style.css" rel="stylesheet"/></head><body><header>
+<a aria-label="P5GO home" class="header-brand" href="index.html">
+<span class="logo">P5GO<small>QUICK COMMERCE</small></span>
+</a>
+<button aria-controls="mainNav" aria-label="Open navigation" class="nav-toggle" onclick="toggleNav()">☰</button>
+<nav aria-label="Primary navigation" class="main-nav" id="mainNav">
+<a class="" href="index.html">Home</a><a class="active" href="shop.html">Shop</a><a class="" href="categories.html">Categories</a><a class="" href="profile.html">Profile</a><a class="" href="orders.html">Orders</a><a class="" href="support.html">Support</a>
+</nav>
+<div class="header-right">
+<span class="delivery-note">⚡ 10–20 min delivery</span>
+<button aria-label="Toggle dark mode" class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle dark mode"><span id="themeIcon">🌙</span><span class="theme-label">Dark</span></button>
+<button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+</div>
+</header>
+<main>
+<section class="shop-hero reveal"><div class="eyebrow">🛒 P5GO SHOP</div><h1 id="shopTitle">Shop all groceries</h1><p id="shopDescription">Everyday groceries and essentials, priced for a practical Indian basket.</p></section>
+<section class="search-area reveal"><div class="search-wrap"><input id="searchInput" onkeyup="filterProducts()" placeholder="Search products, categories or pack sizes..." type="text"/></div></section>
+<section class="category-wrap reveal"><div class="category-scroll" data-category-tabs=""></div></section>
+<section class="shop-toolbar"><span class="result-count" id="resultCount"></span><select class="sort-select" id="sortSelect" onchange="sortProducts()"><option value="default">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="name">Name: A to Z</option></select></section>
+<section class="products-section" style="padding-top:12px"><div class="products" id="productContainer"></div></section>
+</main>
+<footer id="footer">
+<p><strong>P5GO</strong> · quick groceries without the fuss · <span id="currentYear">2026</span></p>
+<div class="footer-nav"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="categories.html">Categories</a><a href="profile.html">Profile</a><a href="orders.html">Orders</a><a href="support.html">Support</a></div>
+<div class="footer-support"><a href="mailto:priyalsupport@gmail.com">✉ priyalsupport@gmail.com</a><a href="tel:+919867007394">📞 +91 9867007394</a><a href="tel:+918177976119">☎ +91 8177976119</a></div>
+</footer><div id="globalUi"></div><button aria-label="Back to top" class="top-btn" id="topBtn" onclick="scrollTop()">↑</button><script src="script.js"></script></body></html>

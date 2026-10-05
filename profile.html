@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f9d55" />
+  <title>P5GO - Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <a class="header-brand" href="index.html" aria-label="P5GO home">
+    <span class="logo">P5GO<small>QUICK COMMERCE</small></span>
+  </a>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Open navigation" aria-controls="mainNav">☰</button>
+  <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+    <a class="" href="index.html">Home</a><a class="" href="shop.html">Shop</a><a class="" href="categories.html">Categories</a><a class="active" href="profile.html">Profile</a><a class="" href="orders.html">Orders</a><a class="" href="support.html">Support</a>
+  </nav>
+  <div class="header-right">
+    <span class="delivery-note">⚡ 10–20 min delivery</span>
+    <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode"><span id="themeIcon">🌙</span><span class="theme-label">Dark</span></button>
+    <button class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
+<main class="site-section">
+  <div class="profile-page-wrap reveal">
+    <section class="profile-panel profile-page-card">
+      <div class="profile-topbar">
+        <div><span class="profile-kicker">MY P5GO</span><h2>My Profile</h2></div>
+        <a class="outline-link" href="shop.html">Continue shopping</a>
+      </div>
+      <div class="profile-card">
+        <div class="large-avatar" id="profileAvatar">👤</div>
+        <div class="profile-heading">
+          <h3 id="profileDisplayName">P5GO Customer</h3>
+          <p id="profileDisplayEmail">Add your email</p>
+        </div>
+        <button class="edit-profile-btn" onclick="editProfile()">Edit</button>
+      </div>
+      <div class="account-grid">
+        <div class="account-info"><span>Name</span><strong id="accountName">P5GO Customer</strong></div>
+        <div class="account-info"><span>Email</span><strong id="accountEmail">Not added</strong></div>
+        <div class="account-info"><span>Phone</span><strong id="accountPhone">Not added</strong></div>
+        <div class="account-info"><span>Default address</span><strong id="accountAddress">Not added</strong></div>
+      </div>
+      <div class="profile-stats">
+        <div><strong id="orderCountStat">0</strong><span>Orders</span></div>
+        <div><strong id="profileItemsStat">0</strong><span>Items bought</span></div>
+        <div><strong id="profileSpendStat">₹0</strong><span>Total spent</span></div>
+      </div>
+      <div class="profile-page-links">
+        <a class="outline-link" href="orders.html">View past orders →</a>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="edit-modal" id="editProfileModal" onclick="if(event.target===this)closeEditProfile()">
+  <div class="edit-box">
+    <div class="edit-header"><div><span class="profile-kicker">ACCOUNT</span><h3>Edit profile</h3></div><button class="close-btn" onclick="closeEditProfile()">✕</button></div>
+    <form id="profileForm" onsubmit="saveProfile(event)">
+      <label for="profileNameInput">Name</label><input id="profileNameInput" type="text" required>
+      <label for="profileEmailInput">Email</label><input id="profileEmailInput" type="email">
+      <label for="profilePhoneInput">Phone</label><input id="profilePhoneInput" type="tel" inputmode="numeric" maxlength="10">
+      <label for="profileAddressInput">Address</label><textarea id="profileAddressInput" rows="3"></textarea>
+      <div class="modal-actions"><button type="button" class="secondary-btn" onclick="closeEditProfile()">Cancel</button><button type="submit" class="primary-btn">Save profile</button></div>
+    </form>
+  </div>
+</div>
+<footer id="footer">
+  <p><strong>P5GO</strong> · quick groceries without the fuss · <span id="currentYear">2026</span></p>
+  <div class="footer-nav"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="categories.html">Categories</a><a href="profile.html">Profile</a><a href="orders.html">Orders</a><a href="support.html">Support</a></div>
+  <div class="footer-support"><a href="mailto:priyalsupport@gmail.com">✉ priyalsupport@gmail.com</a><a href="tel:+919867007394">📞 +91 9867007394</a><a href="tel:+918177976119">☎ +91 8177976119</a></div>
+</footer>
+<div id="globalUi"></div><button id="topBtn" class="top-btn" onclick="scrollTop()" aria-label="Back to top">↑</button><script src="script.js"></script>
+</body>
+</html>
