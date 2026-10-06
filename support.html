@@ -15,6 +15,34 @@
 </header>
 <main class="site-section">
 <section class="shop-hero reveal"><div class="eyebrow">🆘 P5GO SUPPORT</div><h1>Need a hand?</h1><p>For this college-project demo, use the contact details below for delivery, order, account or payment questions.</p></section>
+<section class="support-info-tabs reveal" aria-label="Support information">
+<div class="support-tab-list" role="tablist" aria-label="Support resources">
+<button type="button" class="support-tab active" role="tab" aria-selected="true" aria-controls="supportTabPanel" id="supportTab" data-tab="support">Support</button>
+<button type="button" class="support-tab" role="tab" aria-selected="false" aria-controls="supportTabPanel" id="termsTab" data-tab="terms">Terms</button>
+<button type="button" class="support-tab" role="tab" aria-selected="false" aria-controls="supportTabPanel" id="blogTab" data-tab="blog">Blog</button>
+<button type="button" class="support-tab" role="tab" aria-selected="false" aria-controls="supportTabPanel" id="privacyTab" data-tab="privacy">Privacy</button>
+</div>
+<div class="support-tab-panel" id="supportTabPanel" role="tabpanel" tabindex="0">
+<div class="support-panel-content" data-panel="support">
+<span class="support-kicker">QUICK HELP</span><h2>Before you contact us</h2>
+<div class="support-mini-grid"><div><strong>Order status</strong><p>Keep your P5GO order ID ready so we can quickly find your demo order.</p></div><div><strong>Payments</strong><p>Checkout is a front-end college-project demo. No real payment is processed.</p></div><div><strong>Delivery</strong><p>The demo shows an estimated 10–20 minute delivery window.</p></div></div>
+</div>
+<div class="support-panel-content" data-panel="terms" hidden>
+<span class="support-kicker">TERMS OF USE</span><h2>Simple demo terms</h2>
+<p>By using this website, you understand that P5GO is a college-project front-end demo. Product prices, discounts, delivery times, fees and order confirmations are illustrative and may not represent a real commercial service.</p>
+<p>Orders created here are stored locally in your browser for demonstration purposes. No real grocery order is dispatched and no real payment is collected.</p>
+</div>
+<div class="support-panel-content" data-panel="blog" hidden>
+<span class="support-kicker">P5GO BLOG</span><h2>Quick commerce, made simple</h2>
+<div class="blog-list"><article class="blog-post"><span>06 OCT 2026</span><h3>How P5GO keeps everyday shopping quick</h3><p>A look at category-first browsing, simple search and a lightweight cart flow built for mobile browsers.</p></article><article class="blog-post"><span>01 OCT 2026</span><h3>Smart grocery shopping on a student budget</h3><p>Build a practical basket by comparing unit sizes, sale prices and the final checkout amount—not just the sticker price.</p></article><article class="blog-post"><span>25 SEP 2026</span><h3>Why a clean checkout matters</h3><p>A good checkout should make discounts, delivery fees and the final amount easy to understand before placing an order.</p></article></div>
+</div>
+<div class="support-panel-content" data-panel="privacy" hidden>
+<span class="support-kicker">PRIVACY</span><h2>Your data in this demo</h2>
+<p>P5GO stores demo profile details, cart contents and completed orders in your browser's local storage so the website can work between pages.</p>
+<p>This project does not send your information to a real grocery delivery backend, and the payment options are demonstration-only.</p>
+</div>
+</div>
+</section>
 <section class="support-section reveal"><div class="section-heading"><div><span class="support-kicker">CONTACT US</span><h2>Customer Support</h2></div><span>We're here to help</span></div><div class="support-grid">
 <article class="support-card"><div class="support-icon">✉️</div><div class="support-copy"><span class="support-label">Email support</span><h3>priyalsupport@gmail.com</h3><p>Include your P5GO order ID and issue for faster help.</p><a class="support-action" href="mailto:priyalsupport@gmail.com?subject=P5GO%20Support%20Request">Email support →</a></div></article>
 <article class="support-card"><div class="support-icon">📞</div><div class="support-copy"><span class="support-label">Primary line</span><h3>+91 9867007394</h3><p>Call for delivery, order, account or payment assistance.</p><a class="support-action" href="tel:+919867007394">Call now →</a></div></article>
@@ -26,4 +54,30 @@
 <p><strong>P5GO</strong> · quick groceries without the fuss · <span id="currentYear">2026</span></p>
 <div class="footer-nav"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="categories.html">Categories</a><a href="profile.html">Profile</a><a href="orders.html">Orders</a><a href="support.html">Support</a></div>
 <div class="footer-support"><a href="mailto:priyalsupport@gmail.com">✉ priyalsupport@gmail.com</a><a href="tel:+919867007394">📞 +91 9867007394</a><a href="tel:+918177976119">☎ +91 8177976119</a></div>
-</footer><div id="globalUi"></div><button aria-label="Back to top" class="top-btn" id="topBtn" onclick="scrollTop()">↑</button><script src="script.js"></script></body></html>
+<div class="footer-legal">© Blink Commerce Private Limited, 2016-2026</div>
+<div class="made-with-love">Made with ♥ in Mumbai</div>
+</footer><div id="globalUi"></div><button aria-label="Back to top" class="top-btn" id="topBtn" onclick="scrollTop()">↑</button><script>
+(function(){
+  const tabs=[...document.querySelectorAll(".support-tab")];
+  const panels=[...document.querySelectorAll(".support-panel-content")];
+  if(!tabs.length)return;
+  function activate(name, focus){
+    tabs.forEach(tab=>{const active=tab.dataset.tab===name;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",String(active));if(active&&focus)tab.focus();});
+    panels.forEach(panel=>{panel.hidden=panel.dataset.panel!==name;});
+  }
+  tabs.forEach((tab,index)=>{
+    tab.addEventListener("click",()=>activate(tab.dataset.tab,false));
+    tab.addEventListener("keydown",event=>{
+      if(event.key!=="ArrowRight"&&event.key!=="ArrowLeft"&&event.key!=="Home"&&event.key!=="End")return;
+      event.preventDefault();
+      let next=index;
+      if(event.key==="ArrowRight")next=(index+1)%tabs.length;
+      if(event.key==="ArrowLeft")next=(index-1+tabs.length)%tabs.length;
+      if(event.key==="Home")next=0;
+      if(event.key==="End")next=tabs.length-1;
+      activate(tabs[next].dataset.tab,true);
+    });
+  });
+})();
+</script>
+<script src="script.js"></script></body></html>
